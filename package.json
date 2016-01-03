@@ -1,6 +1,6 @@
 {
   "name": "elm-stdio",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Elm stdio server",
   "bin": "./bin/elm-stdio",
   "preferGlobal": true,

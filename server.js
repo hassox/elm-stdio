@@ -66,7 +66,7 @@ function handleRequest(workingDir, request, callback) {
     )
   }
 
-  var Elm = getDefaultExports(filePath);
+  var Elm = getDefaultExports(path.resolve(workingDir,filePath));
 
   invariant(
     typeof Elm[renderMethod] === 'function',
