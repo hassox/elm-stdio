@@ -1,0 +1,23 @@
+{
+  "name": "elm-stdio",
+  "version": "1.0.0",
+  "description": "Elm stdio server",
+  "bin": "./bin/elm-stdio",
+  "preferGlobal": true,
+  "files": [
+    "bin",
+    "server.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Neighman",
+  "license": "MIT",
+  "dependencies": {
+    "JSONStream": "^1.0.7",
+    "event-stream": "^3.3.2",
+    "invariant": "^2.2.0",
+    "min-document": "hassox/min-document",
+    "virtual-dom": "^2.1.1"
+  }
+}
