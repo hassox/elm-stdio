@@ -26,13 +26,13 @@ function renderEmbedded(Elm, request, callback) {
   var div = h('div', {id: request.id});
   var elem = createElement(div);
 
-  Elm.embed(Elm[request.component], elem, request.data);
+  Elm[request.component].embed(elem, request.data);
 
   callback(null, serializer(elem));
 }
 
 function renderFullscreen(Elm, request, callback) {
-  Elm.fullscreen(Elm[request.component], request.data);
+  Elm[request.component].fullscreen(request.data);
   callback(null, serializer(document.body));
 }
 
@@ -69,15 +69,15 @@ function handleRequest(workingDir, request, callback) {
   var Elm = getDefaultExports(path.resolve(workingDir,filePath));
 
   invariant(
-    typeof Elm[renderMethod] === 'function',
-    'Cannot find render method: %s',
-    renderMethod
-  )
-
-  invariant(
     !!Elm[componentName],
     'Cannot find the component: %s',
     componentName
+  )
+
+  invariant(
+    typeof Elm[componentName][renderMethod] === 'function',
+    'Cannot find render method: %s',
+    renderMethod
   )
 
   renderers[renderMethod](Elm, request, callback);
